@@ -1,5 +1,5 @@
 # Suggesting to use WSGI server.
-# If you are using API in your local machine you can use
+# 
 #
 #
 

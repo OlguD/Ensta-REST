@@ -25,3 +25,8 @@ This REST API is created and maintained by [**Olgu Değirmenci**](https://github
 - 🟡 Fetch Your Email, Gender, Birthday, etc.
 
 Yellow circles represent features coming soon. Stay Tuned!
+
+## Contributors
+<a href = "https://github.com/diezo/ensta-rest/graphs/contributors">
+  <img src = "https://contrib.rocks/image?repo=diezo/ensta-rest"/>
+</a>
