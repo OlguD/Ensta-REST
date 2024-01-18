@@ -24,5 +24,4 @@ This REST API is created and maintained by [@OlguD](https://github.com/OlguD).
 - [ ] Edit Biography, Display Name
 - [ ] Fetch Your Email, Gender, Birthday, etc.
 
-# Coming soon...
-We're working hard on drafting the first ever release of this REST API. Stay tuned!
+We're working hard to add more and more features to this REST API. Stay Tuned!
