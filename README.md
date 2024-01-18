@@ -1,7 +1,7 @@
 # Free Instagram REST API
 An open-source REST API for Instagram Scraping & Account Automation created using [Flask](https://flask.palletsprojects.com). It relies on the open-source [Ensta Package](https://github.com/diezo/ensta).
 
-# Developer
+# <img src="https://avatars.githubusercontent.com/u/92662245" width="28"/> Developer
 This REST API is created and maintained by [**Olgu Değirmenci**](https://github.com/OlguD).
 
 # Features
@@ -24,4 +24,4 @@ This REST API is created and maintained by [**Olgu Değirmenci**](https://github
 - 🟡 Edit Biography, Display Name
 - 🟡 Fetch Your Email, Gender, Birthday, etc.
 
-Features with yellow colour are coming soon. Stay Tuned!
+Yellow circles represent features coming soon. Stay Tuned!
