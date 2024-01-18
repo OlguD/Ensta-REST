@@ -3,3 +3,4 @@ venv/**
 ensta-session.txt
 /idea
 /.idea
+__pycache__/
