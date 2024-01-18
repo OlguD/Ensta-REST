@@ -5,13 +5,13 @@ An open-source REST API for Instagram Scraping & Account Automation created usin
 This REST API is created and maintained by [@OlguD](https://github.com/OlguD).
 
 # Features
-- [ ] Username Password Login
-- [ ] 2FA Support
-- [ ] Upload Single Photo - Post
-- [ ] Upload Multiple Photos - Single Post
-- [ ] Proxy Support
-- [ ] Upload Reel
-- [ ] Check Username Availability
+- [x] Username Password Login
+- [x] 2FA Support
+- [x] Upload Single Photo - Post
+- [x] Upload Multiple Photos - Single Post
+- [x] Proxy Support
+- [x] Upload Reel
+- [x] Check Username Availability
 - [ ] Fetch Post Data
 - [ ] Username to UserID, and vice versa.
 - [ ] Follow / Unfollow Users
