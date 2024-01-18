@@ -15,11 +15,12 @@ app = Flask(__name__)
 @app.route('/login', methods=['POST'])
 def login():
     # try:
-    username = request.form.get('username', None)
-    password = request.form.get('password', None)
-    two_factor = request.form.get('two_factor', None)
-    proxy = request.form.get('proxy', None)
-
+    data = request.json
+    username = data.get('username')
+    password = data.get('password')
+    two_factor = data.get('two_factor')
+    proxy = data.get('proxy')
+    print(username, password, two_factor, proxy)
 
     host = Host(username=username, password=password, totp_token=two_factor, proxy=proxy)
 
@@ -40,9 +41,10 @@ def uploadImage():
         session_data_str = file.read()
 
     try:
-        caption = request.json.get('caption')
-        pic_url = request.json.get('picture')
-        proxy = request.json.get('proxy')
+        data = request.json
+        caption = data.get('caption')
+        pic_url = data.get('picture')
+        proxy = data.get('proxy')
 
         if caption == '' or caption is None or caption.isspace():
             caption = ""
@@ -74,9 +76,10 @@ def uploadMultipleImage():
         session_data_str = file.read()
 
     try:
-        caption = request.json.get('caption')
+        data = request.json
+        caption = data.get('caption')
         pics_url = request.files.getlist('pictures')
-        proxy = request.form.get('proxy')
+        proxy = data.get('proxy')
 
         if caption == '' or caption is None or caption.isspace(): caption = ""
 
@@ -107,10 +110,11 @@ def uploadReels():
         session_data_str = file.read()
 
     try:
-        thumbnail_path = request.form.get('thumbnail')
-        caption = request.form.get('caption')
-        video_path = request.form.get('video_path')
-        proxy = request.form.get('proxy')
+        data = request.json
+        thumbnail_path = data.get('thumbnail')
+        caption = data.get('caption')
+        video_path = data.get('video_path')
+        proxy = data.get('proxy')
 
         host = SessionHost(session_data_str, proxy=proxy)
         host.upload_reel(
@@ -131,8 +135,9 @@ def uploadReels():
 def checkUsernameAvailability():
 
     try:
-        username = request.form.get('username')
-        proxy = request.form.get('proxy')
+        data = request.json
+        username = data.get('username')
+        proxy = data.get('proxy')
 
         guest = Guest(proxy=proxy)
         result = guest.username_availability(username)
@@ -146,18 +151,27 @@ def checkUsernameAvailability():
         })
 
 
+# Will be done in a few days
 @app.route('/fetchProfileData', methods=['POST'])
 @login_required
 def fetchProfileData():
     with open('ensta-session.txt', 'r') as file:
         session_data_str = file.read()
 
-    username = request.form.get('username')
-    proxy = request.form.get('proxy')
-    save_file = True
+    try:
+        data = request.json
+        username = data.get('username')
+        proxy = data.get('proxy')
+        save_file = True
 
-    host = SessionHost(session_data_str, proxy=proxy)
-    profile = host.profile(username=username)
+        host = SessionHost(session_data_str, proxy=proxy)
+        profile = host.profile(username=username)
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
 
     return jsonify({'status': 'ok', 'profile_data': profile})
 
