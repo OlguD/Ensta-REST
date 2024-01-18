@@ -1,0 +1,8 @@
+requests
+moviepy
+pycryptodome
+pyotp
+ntplib
+Flask==3.0.0
+pycryptodomex
+ensta
