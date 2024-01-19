@@ -13,12 +13,12 @@ This REST API is created and maintained by [**Olgu Değirmenci**](https://github
 - 🟢 Upload Reel
 - 🟢 Check Username Availability
 - 🟡 Fetch Post Data
-- 🟡 Username to UserID, and vice versa.
-- 🟡 Follow / Unfollow Users
-- 🟡 Generate Followers/Followings List
-- 🟡 Switch Account Type - Public/Private
-- 🟡 Fetch Someone's Feed
-- 🟡 Add Comment on Post
+- 🟢 Username to UserID, and vice versa.
+- 🟢 Follow / Unfollow Users
+- 🟢 Generate Followers/Followings List
+- 🟢 Switch Account Type - Public/Private
+- 🟢 Fetch Someone's Feed
+- 🟢 Add Comment on Post
 - 🟡 Like/Unlike Posts
 - 🟡 Fetch Post's Likers
 - 🟡 Edit Biography, Display Name
