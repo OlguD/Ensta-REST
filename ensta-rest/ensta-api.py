@@ -175,6 +175,202 @@ def fetchProfileData():
 
     return jsonify({'status': 'ok', 'profile_data': profile})
 
+
+@app.route('/username-to-userid', methods=['POST'])
+def username_to_user_id():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        username = data.get('username')
+        proxy = data.get('proxy')
+        host = SessionHost(session_data_str, proxy=proxy)
+        uid = host.get_uid(username)
+
+        return jsonify({'status': 'ok', 'user_id': uid})
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
+@app.route('/followUser', methods=['POST'])
+def followUser():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        username = data.get('username')
+        proxy = data.get('proxy')
+        host = SessionHost(session_data_str, proxy=proxy)
+        host.follow(username)
+
+        return jsonify({'status': 'ok', 'result': f'-- Following {username}'})
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
+@app.route('/unfollowUser', methods=['POST'])
+def followUser():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        username = data.get('username')
+        proxy = data.get('proxy')
+        host = SessionHost(session_data_str, proxy=proxy)
+        host.unfollow(username)
+
+        return jsonify({'status': 'ok', 'result': f'-- Unfollowed {username}'})
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
+@app.route('/getFollowerList', methods=['POST'])
+def getFollowerList():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        username = data.get('username')
+        proxy = data.get('proxy')
+        host = SessionHost(session_data_str, proxy=proxy)
+        followers = host.followers(username, count=0)
+
+        return jsonify({'status': 'ok', 'result': followers})
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
+@app.route('/getFollowingList', methods=['POST'])
+def getFollowerList():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        username = data.get('username')
+        proxy = data.get('proxy')
+        host = SessionHost(session_data_str, proxy=proxy)
+        followings = host.followings(username, count=0)
+
+        return jsonify({'status': 'ok', 'result': followings})
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
+@app.route('/switchToPublic', methods=['POST'])
+def switchToPublic():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        proxy = data.get('proxy')
+        host = SessionHost(session_data_str, proxy=proxy)
+        host.switch_to_public_account()
+
+        return jsonify({'status': 'ok', 'result': 'Account switched to public'})
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
+@app.route('/switchToPrivate', methods=['POST'])
+def switchToPrivate():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        proxy = data.get('proxy')
+        host = SessionHost(session_data_str, proxy=proxy)
+        host.switch_to_private_account()
+
+        return jsonify({'status': 'ok', 'result': 'Account switched to private'})
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
+@app.route('/fetchSomeonesFeed', methods=['POST'])
+def fetchSomeonesFeed():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        proxy = data.get('proxy')
+        username = data.get('username')
+        host = SessionHost(session_data_str, proxy=proxy)
+
+        posts = host.posts(username, count=0)
+
+        return jsonify({'status': 'ok', 'posts': posts})
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
+@app.route('/addComment', methods=['POST'])
+def addComment():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        post_link = data.get('post_link')
+        comment = data.get('comment')
+        proxy = data.get('proxy')
+
+        host = SessionHost(session_data_str, proxy=proxy)
+
+        post_id = host.get_post_id(post_link)
+        host.comment(comment, post_id)
+
+        return jsonify({
+            'status': 'ok',
+            'result': f'Added comment to {post_link}'
+        })
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
 if __name__ == "__main__":
     # Change debug mode False if you are not going to debug app.
     app.run(debug=True)
