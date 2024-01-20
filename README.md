@@ -4,7 +4,7 @@ An open-source REST API for Instagram Scraping & Account Automation created usin
 # <img src="https://avatars.githubusercontent.com/u/92662245" width="28"/> Developer
 This REST API is created and maintained by [**Olgu Değirmenci**](https://github.com/OlguD).
 
-# Features
+# Features Implemented
 - 🟢 Username Password Login
 - 🟢 2FA Support
 - 🟢 Upload Single Photo - Post
@@ -12,19 +12,19 @@ This REST API is created and maintained by [**Olgu Değirmenci**](https://github
 - 🟢 Proxy Support
 - 🟢 Upload Reel
 - 🟢 Check Username Availability
-- 🟡 Fetch Post Data
 - 🟢 Username to UserID, and vice versa.
 - 🟢 Follow / Unfollow Users
 - 🟢 Generate Followers/Followings List
 - 🟢 Switch Account Type - Public/Private
 - 🟢 Fetch Someone's Feed
 - 🟢 Add Comment on Post
+
+## Remaining Features
+- 🟡 Fetch Post Data
 - 🟡 Like/Unlike Posts
 - 🟡 Fetch Post's Likers
 - 🟡 Edit Biography, Display Name
 - 🟡 Fetch Your Email, Gender, Birthday, etc.
-
-Yellow circles represent features coming soon. Stay Tuned!
 
 ## Contributors
 <a href = "https://github.com/diezo/ensta-rest/graphs/contributors">
