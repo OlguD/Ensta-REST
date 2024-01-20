@@ -4,7 +4,7 @@ An open-source REST API for Instagram Scraping & Account Automation created usin
 # <img src="https://avatars.githubusercontent.com/u/92662245" width="28"/> Developer
 This REST API is created and maintained by [**Olgu Değirmenci**](https://github.com/OlguD).
 
-# Supported Actions
+# Features
 - 🟢 Username Password Login
 - 🟢 2FA Support
 - 🟢 Upload Single Photo - Post
