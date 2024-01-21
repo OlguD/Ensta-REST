@@ -3,7 +3,14 @@ An unofficial Instagram REST API based on [**Ensta**](https://github.com/diezo/e
 
 Developers can use this API to automate their account & scrape data from Instagram.
 
-# Features
+## Start Server
+In the ```ensta-rest``` directory, run:
+
+```
+$ py ensta-api.py
+```
+
+## Features
 - 🟢 Username Password Login
 - 🟢 2FA Support
 - 🟢 Upload Single Photo - Post
