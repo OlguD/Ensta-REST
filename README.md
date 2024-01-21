@@ -3,11 +3,16 @@ An unofficial Instagram REST API based on [**Ensta**](https://github.com/diezo/e
 
 Developers can use this API to automate their account & scrape data from Instagram.
 
-## Start Server
-In the ```ensta-rest``` directory, run:
-
+### Install Dependencies
+Make sure are the dependencies are installed correctly:
 ```
-$ py ensta-api.py
+$ pip install -r requirements.txt
+```
+
+### Run Server
+This will start the REST API server on localhost:
+```
+$ py ./ensta-rest/ensta-api.py
 ```
 
 ## Features
