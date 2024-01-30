@@ -350,7 +350,7 @@ def addComment():
 
     try:
         data = request.json
-        post_link = data.get('post_link')
+        post_link = data.get('post-link')
         comment = data.get('comment')
         proxy = data.get('proxy')
 
@@ -363,6 +363,156 @@ def addComment():
             'status': 'ok',
             'result': f'Added comment to {post_link}'
         })
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
+@app.route('like', methods=['POST'])
+def like():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        post_link = data.get('post-link')
+        proxy = data.get('proxy')
+
+        host = SessionHost(session_data_str, proxy=proxy)
+        post_id = host.get_post_id(post_link)
+
+        host.like(post_id)
+
+        return jsonify({
+            'status': 'ok',
+            'result': f'Liked post - {post_link}'
+        })
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
+@app.route('unlike', methods=['POST'])
+def unlike():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        post_link = data.get('post-link')
+        proxy = data.get('proxy')
+
+        host = SessionHost(session_data_str, proxy=proxy)
+        post_id = host.get_post_id(post_link)
+
+        host.unlike(post_id)
+
+        return jsonify({
+            'status': 'ok',
+            'result': f'Unliked post - {post_link}'
+        })
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
+@app.route('fetchPostLikers', methods=['POST'])
+def fetchPostLikers():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        post_link = data.get('post-link')
+        proxy = data.get('proxy')
+
+        host = SessionHost(session_data_str, proxy=proxy)
+        post_id = host.get_post_id(post_link)
+        likers = host.likers(post_id)
+
+        users = {}
+        for user in likers.users:
+            users['username'] = user.username
+            users['profile_picture_url'] = user.profile_picture_url
+
+        return jsonify({
+            'status': 'ok',
+            'likers': users
+        })
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
+@app.route('changeBio', methods=['POST'])
+def changeBio():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        new_bio = data.get('new-bio')
+        proxy = data.get('proxy')
+
+        host = SessionHost(session_data_str, proxy=proxy)
+        host.change_bio(new_bio)
+
+        return jsonify({'status': 'ok', 'msg': 'Changed biography.'})
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
+@app.route('changeDisplayName', methods=['POST'])
+def changeDisplayName():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        new_display_name = data.get('new-display-name')
+        proxy = data.get('proxy')
+
+        host = SessionHost(session_data_str, proxy=proxy)
+        host.change_display_name(new_display_name)
+
+        return jsonify({'status': 'ok', 'msg': 'Changed name.'})
+
+    except Exception as e:
+        return jsonify({
+            'status': 'fail',
+            'message': e
+        })
+
+
+@app.route('fetchPrivateInfo', methods=['POST'])
+def changeBio():
+    with open('ensta-session.txt', 'r') as file:
+        session_data_str = file.read()
+
+    try:
+        data = request.json
+        proxy = data.get('proxy')
+
+        host = SessionHost(session_data_str, proxy=proxy)
+        me = host.private_info()
+
+        return jsonify({'status': 'ok', 'msg': me})
 
     except Exception as e:
         return jsonify({

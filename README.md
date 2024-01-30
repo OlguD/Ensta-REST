@@ -19,10 +19,10 @@ This REST API is created and maintained by [**Olgu Değirmenci**](https://github
 - 🟢 Switch Account Type - Public/Private
 - 🟢 Fetch Someone's Feed
 - 🟢 Add Comment on Post
-- 🟡 Like/Unlike Posts
-- 🟡 Fetch Post's Likers
-- 🟡 Edit Biography, Display Name
-- 🟡 Fetch Your Email, Gender, Birthday, etc.
+- 🟢 Like/Unlike Posts
+- 🟢 Fetch Post's Likers
+- 🟢 Edit Biography, Display Name
+- 🟢 Fetch Your Email, Gender, Birthday, etc.
 
 Yellow circles represent features coming soon. Stay Tuned!
 
