@@ -1,10 +1,21 @@
-# Free Instagram REST API
-An open-source REST API for Instagram Scraping & Account Automation created using [Flask](https://flask.palletsprojects.com). It relies on the open-source [Ensta Package](https://github.com/diezo/ensta).
+# [@Ensta](https://github.com/diezo/ensta)'s REST API
+An unofficial Instagram REST API based on [**Ensta**](https://github.com/diezo/ensta) created by [**@OlguD**](https://github.com/OlguD).
 
-# <img src="https://avatars.githubusercontent.com/u/92662245" width="28"/> Developer
-This REST API is created and maintained by [**Olgu Değirmenci**](https://github.com/OlguD).
+Developers can use this API to automate their account & scrape data from Instagram.
 
-# Features
+### Install Dependencies
+Make sure are the dependencies are installed correctly:
+```
+$ pip install -r requirements.txt
+```
+
+### Run Server
+This will start the REST API server on localhost:
+```
+$ py ./ensta-rest/ensta-api.py
+```
+
+## Features
 - 🟢 Username Password Login
 - 🟢 2FA Support
 - 🟢 Upload Single Photo - Post
@@ -24,9 +35,12 @@ This REST API is created and maintained by [**Olgu Değirmenci**](https://github
 - 🟢 Edit Biography, Display Name
 - 🟢 Fetch Your Email, Gender, Birthday, etc.
 
-Yellow circles represent features coming soon. Stay Tuned!
+Yellow indicates features yet to be implemented.
 
 ## Contributors
 <a href = "https://github.com/diezo/ensta-rest/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo=diezo/ensta-rest"/>
 </a>
+
+## Legal
+This is a third-party API and not associated with Instagram. We're strictly against spam. Please use this API responsibily and at your own risk.
